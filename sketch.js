@@ -35,9 +35,9 @@ function draw() {
   var bghei = def / 1.5;
   tgwid = def / 2 * resize;
   tghei = def * 0.368 / 2 * resize;
-  var elonwid = def * 0.514 /2;
-  var elonhei = def /2;
-  var poselon = windowHeight*2
+  var elonwid = def * 0.514 / 2;
+  var elonhei = def / 2;
+  var poselon = windowHeight * 2
 
 
 
@@ -47,11 +47,10 @@ function draw() {
   } else if (mySong.isPlaying() == true) {
     image(myLogo, windowWidth / 2, windowHeight / 2, tgwid, tghei)
   }
-  image(myElon, windowWidth / 2, poselon, elonwid , elonhei);
-  console.log(poselon)
+
+  image(myElon, windowWidth / 2, poselon, elonwid, elonhei);
+
   volume = analyzer.getLevel();
-
-
   resize = map(volume, 0, 0.5, 1, 1.5)
 }
 
