@@ -12,6 +12,7 @@ function preload() {
   myBG = loadImage("./assets/mars.jpg");
   myLogo = loadImage("./assets/tgmars.png")
   myElon = loadImage("./assets/musk.png")
+  ship = loadImage("./assets/ship3.png")
 }
 
 function setup() {
@@ -38,7 +39,7 @@ function draw() {
   var elonwid = def * 0.514 / 2;
   var elonhei = def / 2;
   var poselon = windowHeight * 2
-
+  var time = -frameCount % 635;
 
 
   image(myBG, windowWidth / 2, windowHeight / 2, bgwid, bghei)
@@ -46,6 +47,7 @@ function draw() {
     poselon = windowHeight * 5 / 6
   } else if (mySong.isPlaying() == true) {
     image(myLogo, windowWidth / 2, windowHeight / 2, tgwid, tghei)
+    image(ship, windowWidth + time * 3, noise(frameCount) * 5 + windowHeight / 3 * 2, def / 8, def / 8)
   }
 
   image(myElon, windowWidth / 2, poselon, elonwid, elonhei);
