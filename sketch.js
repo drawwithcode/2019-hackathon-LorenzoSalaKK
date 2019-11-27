@@ -47,7 +47,7 @@ function draw() {
     poselon = windowHeight * 5 / 6
   } else if (mySong.isPlaying() == true) {
     image(myLogo, windowWidth / 2, windowHeight / 2, tgwid, tghei)
-    image(ship, windowWidth + time * 3, noise(frameCount) * 5 + windowHeight / 3 * 2, def / 8, def / 8)
+    image(ship, windowWidth + time * 3, windowHeight / 3 * 2, def / 8, def / 8)
   }
 
   image(myElon, windowWidth / 2, poselon, elonwid, elonhei);
