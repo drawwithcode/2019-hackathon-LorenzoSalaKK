@@ -5,6 +5,7 @@ var analyzer;
 var volume = 0;
 var resize;
 var myElon;
+var tgwid, tghei;
 
 function preload() {
   mySong = loadSound("./assets/TG1_bumper.mp3");
@@ -28,15 +29,28 @@ function windowResized() {
 }
 
 function draw() {
-  var bgwid = windowWidth
-  var bghei = windowWidth / 1.5
-  var tgwid = windowWidth / 2 * resize
-  var tghei = windowWidth * 0.368 / 2 * resize
+  background('black')
+  var def = windowWidth * windowHeight / 1000
+  var bgwid = def;
+  var bghei = def / 1.5;
+  tgwid = def / 2 * resize;
+  tghei = def * 0.368 / 2 * resize;
+  var elonwid = def * 0.514 /2;
+  var elonhei = def /2;
+  var poselon = windowHeight*2
+
+
+
   image(myBG, windowWidth / 2, windowHeight / 2, bgwid, bghei)
-  image(myLogo, windowWidth / 2, windowHeight / 2, tgwid, tghei)
-  // image(myElon, windowWidth / 2, windowHeight / 2, 
-  console.log(analyzer.getLevel())
+  if (mySong.isPlaying() == false) {
+    poselon = windowHeight * 5 / 6
+  } else if (mySong.isPlaying() == true) {
+    image(myLogo, windowWidth / 2, windowHeight / 2, tgwid, tghei)
+  }
+  image(myElon, windowWidth / 2, poselon, elonwid , elonhei);
+  console.log(poselon)
   volume = analyzer.getLevel();
+
 
   resize = map(volume, 0, 0.5, 1, 1.5)
 }
@@ -44,6 +58,6 @@ function draw() {
 function mouseClicked() {
   if (mySong.isPlaying() == false) { //returns the Boolean value (true or false)
     mySong.play();
-
   }
+
 }
